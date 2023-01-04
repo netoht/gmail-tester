@@ -45,7 +45,7 @@ async function authenticate(oauth2Client, scopes, tokensFile) {
         .createServer(async (req, res) => {
           try {
             if (req.url.indexOf("/") > -1) {
-              const qs = new url.URL(req.url, "http://localhost:80").searchParams;
+              const qs = new url.URL(req.url, "http://localhost:3080").searchParams;
               res.end("Authentication successful! Please return to the console.");
               server.destroy();
               const { tokens } = await oauth2Client.getToken(qs.get("code"));
@@ -57,7 +57,7 @@ async function authenticate(oauth2Client, scopes, tokensFile) {
             reject(e);
           }
         })
-        .listen(80, () => {
+        .listen(3080, () => {
           // open the browser to the authorize url to start the workflow
           opn(authorizeUrl, { wait: false }).then(cp => cp.unref());
         });
