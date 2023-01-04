@@ -1,5 +1,5 @@
 {
-  "name": "gmail-tester",
+  "name": "@netoht/gmail-tester",
   "version": "1.3.8",
   "description": "A simple NodeJS gmail client which checks the inbox for specific message existence",
   "main": "gmail-tester.js",
